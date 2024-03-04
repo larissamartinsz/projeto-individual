@@ -1,0 +1,47 @@
+<!doctype html> 
+<html lang="en">
+<head> 
+    <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para UTF-8 -->
+    <title>DesertoGame</title> <!-- Título da página -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.js"></script> <!-- Importa a biblioteca Phaser -->
+    <script src="scenes/deserto.js"></script> <!-- Importa o script da cena do deserto -->
+    <script src="scenes/piramide.js"></script> <!-- Importa o script da cena da pirâmide -->
+
+    <style>
+        body {
+            display: flex; /* Define o display como flexível */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente*/
+            height: 100vh; /* Define a altura da página como 100% da altura da viewport */
+            margin: 0; /*Remove as margens padrão do corpo */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        const larguraJogo = 800; // Definição da largura do jogo
+        const alturaJogo = 600; // Definição da altura do jogo 
+
+        const config = {
+            type: Phaser.AUTO, // Define o tipo de renderização
+            width: larguraJogo, // Define a largura do jogo 
+            height: alturaJogo, // Define a altura do jogo 
+            physics: {
+                default: 'arcade', // Define o motor de física padrão como 'arcade'
+                arcade: {
+                    gravity: { y: 10 }, // Define a gravidade vertical
+                    debug: false // Ativa ou desativa a visualização de debug da física 
+                }
+            },
+            scene: [Deserto, Piramide] // Define as cenas do jogo
+        };
+        
+        var game = new Phaser.Game(config); // Cria uma nova instância do jogo com a configuração definida
+
+        var player; // Declaração de variável global para o jogador
+    </script>
+</body>
+</html>
